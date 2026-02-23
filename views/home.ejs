@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>SWANAND</title>
+  <link rel="stylesheet" href="/css/style.css">
+</head>
+<body>
+
+<!-- NAVBAR -->
+<header class="navbar">
+  <div class="brand">
+    <img src="/images/logo.png" alt="logo">
+    <span>SWANAND</span>
+  </div>
+
+  <div class="search">
+    <input
+      id="search"
+      type="text"
+      placeholder="Search products..."
+      onkeyup="searchProducts()"
+    >
+  </div>
+
+  <div class="nav-right">
+    <a href="/cart">🛒 Cart (<span id="cart-count">0</span>)</a>
+  </div>
+</header>
+
+<!-- HERO -->
+<section class="hero">
+  <h1>Swadeshi Ka Anand</h1>
+  <p>Pure • Natural • Premium</p>
+</section>
+
+<!-- PRODUCTS -->
+<section class="products">
+  <div class="grid">
+
+    <% for(let p in products){ %>
+      <div class="card">
+
+        <span class="badge">BEST SELLER</span>
+
+        <!-- IMAGE CLICK -->
+        <a href="/product/<%= products[p].id %>">
+          <img src="<%= products[p].image %>" alt="<%= products[p].name %>">
+        </a>
+
+        <!-- TITLE CLICK -->
+        <a href="/product/<%= products[p].id %>" style="text-decoration:none;color:white;">
+          <h3><%= products[p].name %></h3>
+        </a>
+
+        <div class="rating">⭐⭐⭐⭐☆ (214)</div>
+
+        <p class="price">₹<%= products[p].price %></p>
+
+        <div class="card-actions">
+          <button
+            class="btn-cart"
+            onclick='addToCart(<%- JSON.stringify(products[p]) %>)'>
+            Add to Cart
+          </button>
+
+          <button
+            class="btn-buy"
+            onclick='buyNow(<%- JSON.stringify(products[p]) %>)'>
+            Buy Now
+          </button>
+        </div>
+
+      </div>
+    <% } %>
+
+  </div>
+
+  <p id="no-product" style="display:none;text-align:center;margin-top:40px;">
+    No products found
+  </p>
+</section>
+
+<footer>
+  © 2026 SWANAND
+</footer>
+
+<script src="/js/cart.js"></script>
+</body>
+</html>

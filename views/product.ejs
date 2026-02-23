@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title><%= product.name %> | SWANAND</title>
+  <link rel="stylesheet" href="/css/style.css">
+</head>
+<body>
+
+<header class="navbar">
+  <div class="brand">
+    <img src="/images/logo.png"> SWANAND
+  </div>
+
+  <div>
+    <a href="/" style="color:black;font-weight:bold;">⬅ Back</a>
+  </div>
+</header>
+
+<div style="display:flex;gap:60px;padding:60px;">
+
+  <!-- PRODUCT IMAGE -->
+  <div>
+    <img src="<%= product.image %>" style="width:350px;border-radius:15px;">
+  </div>
+
+  <!-- PRODUCT DETAILS -->
+  <div style="max-width:500px;">
+    <h1><%= product.name %></h1>
+
+    <div style="color:gold;font-size:18px;">
+      ⭐⭐⭐⭐☆ (214 Ratings)
+    </div>
+
+    <h2 style="margin-top:20px;">₹<%= product.price %></h2>
+
+    <p style="margin-top:20px;color:#ccc;">
+      This is a premium quality product from SWANAND.
+      Made with pure and natural ingredients.
+      Trusted by thousands of happy customers.
+    </p>
+
+    <div style="margin-top:30px;display:flex;gap:15px;">
+
+      <button class="btn-cart" onclick='addToCart(<%- JSON.stringify(product) %>)'>
+        Add to Cart
+      </button>
+
+      <button class="btn-buy" onclick='buyNow(<%- JSON.stringify(product) %>)'>
+        Buy Now
+      </button>
+
+    </div>
+
+  </div>
+
+</div>
+
+<footer style="text-align:center;padding:20px;">
+  © 2026 SWANAND
+</footer>
+
+<script src="/js/cart.js"></script>
+
+</body>
+</html>
