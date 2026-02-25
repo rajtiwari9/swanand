@@ -1,145 +1,223 @@
-*{box-sizing:border-box}
-
-body{
-  margin:0;
-  font-family:Segoe UI, sans-serif;
-  background:#0D1B2A;
-  color:#fff;
+/* =========================
+   GLOBAL RESET & BASE
+========================= */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Segoe UI", sans-serif;
 }
 
-/* NAVBAR */
-.navbar{
-  background:#C9A227;
-  padding:14px 30px;
-  display:flex;
-  justify-content:space-between;
-  align-items:center;
+body {
+  background-color: #f1f3f6; /* Flipkart-style light */
+  color: #212121;
 }
 
-.brand{
-  display:flex;
-  align-items:center;
-  gap:10px;
-  font-size:22px;
-  font-weight:bold;
+/* =========================
+   NAVBAR
+========================= */
+.navbar {
+  background: #C9A227;
+  padding: 14px 30px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
 }
 
-.brand img{height:40px}
-
-.search input{
-  width:320px;
-  padding:10px 18px;
-  border-radius:25px;
-  border:none;
+.brand {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 22px;
+  font-weight: bold;
+  color: #000;
 }
 
-.nav-right a{
-  color:#000;
-  font-weight:bold;
-  text-decoration:none;
+.brand img {
+  height: 40px;
 }
 
-/* HERO */
-.hero{
-  text-align:center;
-  padding:70px 20px;
-}
-
-.hero h1{
-  color:#C9A227;
-  font-size:44px;
-}
-
-/* PRODUCTS */
-.products{padding:40px}
-
-.grid{
-  display:grid;
-  grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
-  gap:30px;
-}
-
-.card{
-  background:#1B263B;
-  padding:20px;
-  border-radius:20px;
-  display:flex;
-  flex-direction:column;
-}
-
-.card img{
-  width:100%;
-  height:200px;
-  object-fit:contain;
-}
-
-.badge{
-  background:#C9A227;
-  color:#000;
-  padding:5px 12px;
-  border-radius:12px;
-  width:max-content;
-  font-size:12px;
-}
-
-.rating{color:gold;margin:5px 0}
-
-.price{
-  font-size:22px;
-  font-weight:700;
-}
-
-/* BUTTONS */
-.card-actions{
-  display:flex;
-  gap:12px;
-  margin-top:15px;
-}
-
-.btn-cart{
-  flex:1;
-  background:transparent;
-  border:2px solid #C9A227;
-  color:#C9A227;
-  padding:12px;
-  border-radius:30px;
-  cursor:pointer;
-}
-
-.btn-cart:hover{
-  background:#C9A227;
-  color:#000;
-}
-
-.btn-buy{
-  flex:1;
-  background:#C9A227;
-  border:none;
-  padding:12px;
-  border-radius:30px;
-  font-weight:700;
-  cursor:pointer;
-}
-
-.btn-buy:hover{background:#e0b83a}
-
-/* CART */
-.cart-box{
-  background:#1B263B;
-  padding:20px;
-  border-radius:15px;
-  margin-bottom:20px;
-}
-
-/* FOOTER */
-footer{
-  text-align:center;
-  padding:20px;
-  background:#000;
-  color:#aaa;
-}
-/* 🔍 SEARCH MODE FIX (ONLY when searching) */
-.grid.search-active{
-  grid-template-columns: repeat(auto-fill, 320px);
+/* SEARCH */
+.search {
+  flex: 1;
+  display: flex;
   justify-content: center;
+}
+
+.search input {
+  width: 320px;
+  padding: 10px 18px;
+  border-radius: 25px;
+  border: none;
+  outline: none;
+}
+
+/* NAV RIGHT */
+.nav-right a {
+  color: #000;
+  font-weight: bold;
+  text-decoration: none;
+  margin-left: 20px;
+}
+
+/* =========================
+   HERO SECTION
+========================= */
+.hero {
+  text-align: center;
+  padding: 70px 20px;
+}
+
+.hero h1 {
+  color: #C9A227;
+  font-size: 44px;
+}
+
+/* =========================
+   CONTAINER
+========================= */
+.container {
+  max-width: 1200px;
+  margin: auto;
+  padding: 20px;
+}
+
+/* =========================
+   PRODUCTS GRID
+========================= */
+.products {
+  padding: 40px 0;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+  gap: 25px;
+}
+
+/* =========================
+   PRODUCT CARD
+========================= */
+.card {
+  background: #fff;
+  padding: 18px;
+  border-radius: 16px;
+  display: flex;
+  flex-direction: column;
+  box-shadow: 0 6px 15px rgba(0, 0, 0, 0.08);
+  transition: all 0.3s ease;
+  cursor: pointer;
+}
+
+.card:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.18);
+}
+
+.card img {
+  width: 100%;
+  height: 200px;
+  object-fit: contain;
+  border-radius: 10px;
+  transition: transform 0.3s ease;
+}
+
+.card:hover img {
+  transform: scale(1.06);
+}
+
+/* =========================
+   PRODUCT DETAILS
+========================= */
+.badge {
+  background: #C9A227;
+  color: #000;
+  padding: 5px 12px;
+  border-radius: 12px;
+  width: max-content;
+  font-size: 12px;
+  margin-bottom: 6px;
+}
+
+.rating {
+  color: gold;
+  margin: 6px 0;
+}
+
+.price {
+  font-size: 22px;
+  font-weight: 700;
+  color: #388e3c;
+  margin-top: 5px;
+}
+
+/* =========================
+   BUTTONS
+========================= */
+.card-actions {
+  display: flex;
+  gap: 12px;
+  margin-top: 15px;
+}
+
+.btn-cart {
+  flex: 1;
+  background: transparent;
+  border: 2px solid #C9A227;
+  color: #C9A227;
+  padding: 12px;
+  border-radius: 30px;
+  cursor: pointer;
+  font-weight: 600;
+  transition: all 0.3s ease;
+}
+
+.btn-cart:hover {
+  background: #C9A227;
+  color: #000;
+}
+
+.btn-buy {
+  flex: 1;
+  background: #C9A227;
+  border: none;
+  padding: 12px;
+  border-radius: 30px;
+  font-weight: 700;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.btn-buy:hover {
+  background: #e0b83a;
+  transform: scale(1.05);
+}
+
+/* =========================
+   CART
+========================= */
+.cart-box {
+  background: #fff;
+  padding: 20px;
+  border-radius: 15px;
+  margin-bottom: 20px;
+  box-shadow: 0 6px 15px rgba(0, 0, 0, 0.08);
+}
+
+/* =========================
+   FOOTER
+========================= */
+footer {
+  text-align: center;
+  padding: 20px;
+  background: #000;
+  color: #aaa;
+  margin-top: 40px;
+}
+
+/* =========================
+   SEARCH FIX (NO BIG CARDS)
+========================= */
+.grid.search-active {
+  grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
 }
