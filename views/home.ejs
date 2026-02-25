@@ -1,15 +1,18 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-  <title>SWANAND</title>
+  <meta charset="UTF-8">
+  <title>SWANAND | Swadeshi Ka Anand</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="stylesheet" href="/css/style.css">
 </head>
+
 <body>
 
-<!-- NAVBAR -->
+<!-- ================= NAVBAR ================= -->
 <header class="navbar">
   <div class="brand">
-    <img src="/images/logo.png" alt="logo">
+    <img src="/images/logo.png" alt="SWANAND Logo">
     <span>SWANAND</span>
   </div>
 
@@ -19,6 +22,7 @@
       type="text"
       placeholder="Search products..."
       onkeyup="searchProducts()"
+      autocomplete="off"
     >
   </div>
 
@@ -27,63 +31,69 @@
   </div>
 </header>
 
-<!-- HERO -->
+<!-- ================= HERO ================= -->
 <section class="hero">
   <h1>Swadeshi Ka Anand</h1>
   <p>Pure • Natural • Premium</p>
 </section>
 
-<!-- PRODUCTS -->
+<!-- ================= PRODUCTS ================= -->
 <section class="products">
-  <div class="grid">
+  <div class="grid" id="product-grid">
 
-    <% for(let p in products){ %>
-      <div class="card">
+    <% Object.values(products).forEach(product => { %>
+
+      <div class="card product-card">
 
         <span class="badge">BEST SELLER</span>
 
-        <!-- IMAGE CLICK -->
-        <a href="/product/<%= products[p].id %>">
-          <img src="<%= products[p].image %>" alt="<%= products[p].name %>">
+        <!-- CLICKABLE PRODUCT -->
+        <a href="/product/<%= product.id %>" class="product-link">
+
+          <img
+            src="<%= product.image %>"
+            alt="<%= product.name %>"
+            loading="lazy"
+          >
+
+          <h3 class="product-title"><%= product.name %></h3>
+
         </a>
 
-        <!-- TITLE CLICK -->
-        <a href="/product/<%= products[p].id %>" style="text-decoration:none;color:white;">
-          <h3><%= products[p].name %></h3>
-        </a>
+        <div class="rating">⭐⭐⭐⭐☆ <span>(214)</span></div>
 
-        <div class="rating">⭐⭐⭐⭐☆ (214)</div>
-
-        <p class="price">₹<%= products[p].price %></p>
+        <p class="price">₹<%= product.price %></p>
 
         <div class="card-actions">
           <button
             class="btn-cart"
-            onclick='addToCart(<%- JSON.stringify(products[p]) %>)'>
+            onclick='addToCart(<%- JSON.stringify(product) %>)'>
             Add to Cart
           </button>
 
           <button
             class="btn-buy"
-            onclick='buyNow(<%- JSON.stringify(products[p]) %>)'>
+            onclick='buyNow(<%- JSON.stringify(product) %>)'>
             Buy Now
           </button>
         </div>
 
       </div>
-    <% } %>
+
+    <% }) %>
 
   </div>
 
-  <p id="no-product" style="display:none;text-align:center;margin-top:40px;">
+  <p id="no-product" class="no-product" style="display:none;">
     No products found
   </p>
 </section>
 
 <footer>
-  © 2026 SWANAND
+  © 2026 SWANAND • Made in India 🇮🇳
 </footer>
 
 <script src="/js/cart.js"></script>
+
 </body>
 </html>

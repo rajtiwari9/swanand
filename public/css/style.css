@@ -9,7 +9,7 @@
 }
 
 body {
-  background-color: #f1f3f6; /* Flipkart-style light */
+  background-color: #f1f3f6;
   color: #212121;
 }
 
@@ -74,15 +74,6 @@ body {
 }
 
 /* =========================
-   CONTAINER
-========================= */
-.container {
-  max-width: 1200px;
-  margin: auto;
-  padding: 20px;
-}
-
-/* =========================
    PRODUCTS GRID
 ========================= */
 .products {
@@ -106,7 +97,6 @@ body {
   flex-direction: column;
   box-shadow: 0 6px 15px rgba(0, 0, 0, 0.08);
   transition: all 0.3s ease;
-  cursor: pointer;
 }
 
 .card:hover {
@@ -194,17 +184,6 @@ body {
 }
 
 /* =========================
-   CART
-========================= */
-.cart-box {
-  background: #fff;
-  padding: 20px;
-  border-radius: 15px;
-  margin-bottom: 20px;
-  box-shadow: 0 6px 15px rgba(0, 0, 0, 0.08);
-}
-
-/* =========================
    FOOTER
 ========================= */
 footer {
@@ -216,8 +195,29 @@ footer {
 }
 
 /* =========================
-   SEARCH FIX (NO BIG CARDS)
+   SEARCH FIX
 ========================= */
 .grid.search-active {
   grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+}
+
+/* =========================
+   PRODUCT LINK PREMIUM FIX
+========================= */
+.product-link {
+  display: block;            /* ✅ important fix */
+  text-decoration: none;
+  color: inherit;
+}
+
+.product-title {
+  margin: 12px 0 6px;
+  font-size: 18px;
+  font-weight: 600;
+  color: #1b263b;
+  transition: color 0.25s ease;
+}
+
+.product-link:hover .product-title {
+  color: #C9A227;
 }
