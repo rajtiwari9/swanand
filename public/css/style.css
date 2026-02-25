@@ -221,3 +221,68 @@ footer {
 .product-link:hover .product-title {
   color: #C9A227;
 }
+/* =========================
+   MOBILE RESPONSIVE FIX
+========================= */
+@media (max-width: 768px) {
+
+  /* NAVBAR */
+  .navbar {
+    flex-direction: column;
+    gap: 12px;
+    padding: 14px;
+  }
+
+  .search input {
+    width: 100%;
+    max-width: 340px;
+  }
+
+  .nav-right {
+    width: 100%;
+    text-align: center;
+  }
+
+  /* HERO */
+  .hero {
+    padding: 40px 15px;
+  }
+
+  .hero h1 {
+    font-size: 30px;
+  }
+
+  /* PRODUCTS GRID */
+  .grid {
+    grid-template-columns: 1fr; /* SAME FEEL, FULL WIDTH */
+    gap: 22px;
+  }
+
+  /* CARD */
+  .card {
+    padding: 20px;
+  }
+
+  .card img {
+    height: 220px; /* laptop jaisa feel */
+  }
+
+  .product-title {
+    font-size: 18px;
+    text-align: left;
+  }
+
+  .price {
+    font-size: 22px;
+  }
+
+  /* BUTTONS */
+  .card-actions {
+    flex-direction: column;
+  }
+
+  .btn-cart,
+  .btn-buy {
+    width: 100%;
+  }
+}
